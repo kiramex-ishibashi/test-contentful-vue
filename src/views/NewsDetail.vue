@@ -1,5 +1,5 @@
 <template>
-  <span v-html="content"></span>
+  <span v-html="body"></span>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
   name: 'news-detail',
   data () {
     return {
-      content: ""
+      body: ""
     }
   },
   created () {
@@ -23,7 +23,8 @@ export default {
     console.log(id)
     client.getEntry(id)
       .then(function (entry) {
-        const rawRichTextField = entry.fields.content;
+        console.log(entry.fields.body)
+        const rawRichTextField = entry.fields.body;
         const options = {
           renderNode: {
             [BLOCKS.EMBEDDED_ENTRY]: (node) => `<div>${customComponentRenderer(node)}</div>`,
@@ -31,7 +32,7 @@ export default {
             `<img src="${fields.file.url}" height="${fields.file.details.image.height}" width="${fields.file.details.image.width}" alt="${fields.description}"/>`
           }
         }
-        scope.content = documentToHtmlString(rawRichTextField, options);
+        scope.body = documentToHtmlString(rawRichTextField, options);
       })
   }
 };
