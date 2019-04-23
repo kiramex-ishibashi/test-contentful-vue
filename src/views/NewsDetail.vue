@@ -1,5 +1,8 @@
 <template>
-  <span v-html="body"></span>
+  <div class="NewsDetail">
+    <h2>お知らせ詳細</h2>
+    <div v-html="body" class="NewsDetail_body"></div>
+  </div>
 </template>
 
 <script>
@@ -37,3 +40,16 @@ export default {
   }
 };
 </script>
+
+
+<style lang="scss">
+  .NewsDetail {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0 0 0;
+  }
+  .NewsDetail_body {
+    text-align: left;
+    padding: 40px 0 0 0;
+  }
+</style>

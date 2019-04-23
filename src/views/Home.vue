@@ -1,7 +1,10 @@
 <template>
+  <div class="News">
+    <h2>トップお知らせ</h2>
     <ul>
       <news-list-item v-for="news in newsList" v-bind:post="news"></news-list-item>
     </ul>
+  </div>
 </template>
 
 <script>
@@ -29,3 +32,11 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+  .News {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0 0 0;
+  }
+</style>
