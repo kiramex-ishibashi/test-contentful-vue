@@ -11,7 +11,7 @@ import { client } from '../shared/core';
 import NewsListItem from '../components/NewsListItem';
 
 export default {
-  name: 'home',
+  name: 'news',
   data () {
     return {
       newsList: []
@@ -24,7 +24,7 @@ export default {
     const scope = this;
     client.getEntries()
       .then(function (entries) {
-          scope.newsList = entries.items;
+        scope.newsList = entries.items;
       })
   }
 };
