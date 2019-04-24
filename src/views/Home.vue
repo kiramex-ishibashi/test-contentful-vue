@@ -2,34 +2,33 @@
   <div class="News">
     <h2>トップお知らせ</h2>
     <ul>
-      <news-list-item v-for="news in newsList" v-bind:post="news"></news-list-item>
+      <news-list-item v-for="post in posts" :post='post'></news-list-item>
     </ul>
   </div>
 </template>
 
 <script>
 
-import * as contentful from 'contentful';
 import { client } from '../shared/core';
 import NewsListItem from '../components/NewsListItem';
 
 export default {
   name: 'home',
-  data () {
+  data() {
     return {
-      newsList: []
-    }
+      posts: [],
+    };
   },
   components: {
-    NewsListItem: NewsListItem
+    NewsListItem,
   },
-  mounted () {
+  mounted() {
     const scope = this;
     client.getEntries()
-      .then(function (entries) {
-          scope.newsList = entries.items;
-      })
-  }
+      .then((entries) => {
+        scope.posts = entries.items;
+      });
+  },
 };
 </script>
 

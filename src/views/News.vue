@@ -15,21 +15,21 @@ import NewsListItem from '../components/NewsListItem';
 
 export default {
   name: 'news',
-  data () {
+  data() {
     return {
-      newsList: []
-    }
+      newsList: [],
+    };
   },
   components: {
-    NewsListItem: NewsListItem
+    NewsListItem,
   },
-  mounted () {
+  mounted() {
     const scope = this;
     client.getEntries()
-      .then(function (entries) {
+      .then((entries) => {
         scope.newsList = entries.items;
-      })
-  }
+      });
+  },
 };
 </script>
 
